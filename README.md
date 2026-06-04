@@ -264,10 +264,18 @@ cp .env.example .env
 # Configurar base de datos
 
 # Ejecutar servidor
-```
+
 #TRELLO
+<img width="1139" height="693" alt="image" src="https://github.com/user-attachments/assets/10f376b2-26f5-4a91-b124-ea414d68c119" />
+
 
 #DIAGRAMA DE FIGMA UI/UX
+
+-FIGMA IU
+<img width="1282" height="630" alt="image" src="https://github.com/user-attachments/assets/2a3591ea-0a31-4c5c-8575-d0da6c10b42d" />
+<img width="1246" height="539" alt="image" src="https://github.com/user-attachments/assets/1897f37c-1ef2-4e88-a538-bc94c2aec6ef" />
+
+-FIGMA UX
 ---
 
 # Base de Datos
