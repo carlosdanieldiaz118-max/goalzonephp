@@ -141,6 +141,7 @@ cp .env.example .env
 ```
 
 ## TRELLO
+<img width="1194" height="636" alt="Captura de pantalla 2026-06-04 120135" src="https://github.com/user-attachments/assets/5ef95816-9428-4e22-94b1-488354072726" />
 
 
 ### DIAGRAMA DE FIGMA UI/UX
