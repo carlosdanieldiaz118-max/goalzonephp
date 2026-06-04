@@ -141,7 +141,7 @@ cp .env.example .env
 ```
 
 ## TRELLO
-Falta integrar
+
 
 ### DIAGRAMA DE FIGMA UI/UX
 
