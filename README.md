@@ -265,7 +265,9 @@ cp .env.example .env
 
 # Ejecutar servidor
 ```
+#TRELLO
 
+#DIAGRAMA DE FIGMA UI/UX
 ---
 
 # Base de Datos
