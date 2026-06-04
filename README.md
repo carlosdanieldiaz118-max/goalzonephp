@@ -90,10 +90,77 @@ Desarrollar una aplicación web con **PHP + POO + MVC** que permita:
 
 ## 4. Análisis de Requisitos
 
-### 4.1 Requisitos Funcionales
-Falta
+### Requisitos Funcionales
+
+**RF01. Autenticación de usuarios**
+El sistema debe permitir el inicio de sesión mediante nombre de usuario y contraseña.
+
+**RF02. Gestión de roles**
+El sistema debe diferenciar permisos entre administrador y superadministrador.
+
+**RF03. Registro de empleados**
+El sistema debe permitir registrar nuevos empleados con sus datos personales y cargo asignado.
+
+**RF04. Edición de empleados**
+El sistema debe permitir modificar la información de un empleado existente.
+
+**RF05. Eliminación de empleados**
+El sistema debe permitir eliminar empleados registrados.
+
+**RF06. Gestión de cargos**
+El sistema debe permitir crear y administrar cargos laborales.
+
+**RF07. Registro de asistencia**
+El sistema debe registrar automáticamente la fecha y hora de entrada del empleado.
+
+**RF08. Registro de salida**
+El sistema debe registrar la hora de salida del empleado.
+
+**RF09. Consulta de historial**
+El sistema debe permitir consultar el historial de asistencias filtrando por empleado y fecha.
+
+**RF10. Dashboard administrativo**
+El sistema debe mostrar un resumen diario de asistencias, tardanzas y faltas.
+
+**RF11. Protección de rutas**
+El sistema debe restringir el acceso a módulos según el rol del usuario autenticado.
+
+**RF12. Persistencia de datos**
+El sistema debe almacenar toda la información en una base de datos MariaDB usando PDO.
+
 ### 4.2 Requisitos No Funcionales
-Falta
+### Requisitos No Funcionales
+
+**RNF01. Seguridad**
+Las consultas SQL deben utilizar prepared statements mediante PDO para evitar inyección SQL.
+
+**RNF02. Rendimiento**
+El sistema debe responder en menos de 3 segundos en operaciones comunes.
+
+**RNF03. Disponibilidad**
+El sistema debe estar disponible mientras el servidor web esté operativo.
+
+**RNF04. Usabilidad**
+La interfaz debe ser intuitiva y fácil de usar para administradores y empleados.
+
+**RNF05. Compatibilidad**
+El sistema debe funcionar en navegadores modernos como Chrome, Edge y Firefox.
+
+**RNF06. Escalabilidad**
+La arquitectura MVC debe permitir agregar nuevos módulos fácilmente.
+
+**RNF07. Mantenibilidad**
+El código debe estar organizado bajo principios POO y separación de responsabilidades.
+
+**RNF08. Portabilidad**
+El sistema debe poder ejecutarse en cualquier entorno compatible con PHP 8 y MariaDB.
+
+**RNF09. Integridad de datos**
+La base de datos debe mantener relaciones mediante claves foráneas.
+
+**RNF10. Control de versiones**
+El proyecto debe mantenerse bajo control de versiones usando Git y GitHub.
+
 ## Stack Tecnológico
 
 | Capa | Tecnología |
@@ -109,12 +176,45 @@ Falta
 ## Arquitectura del Proyecto
 
 El sistema aplica **POO** y **MVC** implementado desde cero. Los 4 pilares de POO en el proyecto:
+### Arquitectura MVC
+
+### Principios POO Aplicados
+
+* Encapsulamiento
+* Herencia
+* Abstracción
+* Polimorfismo
+
+La estructura modular facilita el mantenimiento y escalabilidad del sistema.
+
 
 ### Flujo de una Petición
+1. El usuario realiza una solicitud desde el navegador.
+2. Apache redirige la petición mediante `.htaccess`.
+3. El Router identifica el controlador correspondiente.
+4. El Controlador procesa la lógica de negocio.
+5. El Modelo interactúa con la base de datos mediante PDO.
+6. El Controlador envía los datos a la Vista.
+7. La Vista renderiza la respuesta al usuario.
 
 
 ### Estructura del Proyecto
+### Arquitectura MVC
 
+El proyecto implementa el patrón MVC (Model - View - Controller):
+
+* **Model:** Encargado de la lógica de acceso a datos y consultas SQL mediante PDO.
+* **View:** Responsable de mostrar la interfaz al usuario usando HTML, CSS y PHP.
+* **Controller:** Gestiona las peticiones del usuario y coordina la comunicación entre modelos y vistas.
+
+### Principios POO Aplicados
+
+* Encapsulamiento
+* Herencia
+* Abstracción
+* Polimorfismo
+
+La estructura modular facilita el mantenimiento y escalabilidad del sistema.
 ## Instalación
 
 ### Requisitos previos
@@ -145,6 +245,10 @@ cp .env.example .env
 
 
 ### DIAGRAMA DE FIGMA UI/UX
+<img width="1292" height="539" alt="image" src="https://github.com/user-attachments/assets/417a050c-a89d-4180-ad62-07e8e3b967da" />
+
+<img width="1252" height="580" alt="image" src="https://github.com/user-attachments/assets/15591f39-a39f-4284-aecc-bdbce0deffb2" />
+
 
 ## Base de datos
 ```sql
