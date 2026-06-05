@@ -262,6 +262,7 @@ El proyecto implementa el patrón MVC (Model - View - Controller).
 
 ## Pasos
 
+```
 CREATE DATABASE IF NOT EXISTS goalzone_deportivo;
 USE goalzone_deportivo;
 
@@ -364,7 +365,7 @@ INSERT INTO reservas (cancha_nombre, cliente_nombre, fecha_hora_inicio) VALUES
 ('Cancha Tenis 1', 'Mónica Flores', '2025-05-27 14:00:00'),
 ('Cancha Básquet 1', 'Gustavo Luna', '2025-05-28 16:30:00'),
 ('Cancha Vóley 1', 'Daniela Cruz', '2025-05-29 19:30:00');
-
+```
 ```
 
 ---
