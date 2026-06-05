@@ -242,7 +242,8 @@ El proyecto implementa el patrón MVC (Model - View - Controller).
 #TRELLO
 <img width="1139" height="693" alt="image" src="https://github.com/user-attachments/assets/10f376b2-26f5-4a91-b124-ea414d68c119" />
 
-#DIAGRAMA DE FIGMA WIREFRAME
+###DIAGRAMA DE FIGMA WIREFRAME
+
 <img width="635" height="212" alt="image" src="https://github.com/user-attachments/assets/27e479df-bfcc-4f38-b87b-f4f8a4965355" />
 
 #DIAGRAMA DE FIGMA UI/UX
