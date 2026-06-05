@@ -267,14 +267,21 @@ USE goalzone_deportivo;
 
 CREATE TABLE usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    
     nombre_usuario VARCHAR(150) NOT NULL UNIQUE,
+    
     roles ENUM('admin', 'usuario') DEFAULT 'usuario',
+    
     clave VARCHAR(250) NOT NULL
+    
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO usuario (nombre_usuario, roles, clave) VALUES
+
+INSERT INTO usuario (nombre_usuario, roles, clave) 
+VALUES
 ('Carlos',   'admin',   '123'),
 ('Daniel', 'usuario', '12345');
+
 CREATE TABLE canchas (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
