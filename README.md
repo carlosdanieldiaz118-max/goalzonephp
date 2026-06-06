@@ -273,7 +273,7 @@ CREATE TABLE usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre_usuario VARCHAR(150) NOT NULL UNIQUE,
     roles ENUM('admin', 'usuario') DEFAULT 'usuario',
-    clave VARCHAR(250) NOT NULL
+    clave VARCHAR(250) NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO usuario (nombre_usuario, roles, clave) VALUES
