@@ -265,44 +265,40 @@ FALTA
 * XAMPP o Laragon
 
 ## Pasos
-
-```
+## Base de datos
 CREATE DATABASE IF NOT EXISTS goalzone_deportivo;
 USE goalzone_deportivo;
 
 CREATE TABLE usuario (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,   
-    nombre_usuario VARCHAR(150) NOT NULL UNIQUE,  
-    roles ENUM('admin', 'usuario') DEFAULT 'usuario',    
-    clave VARCHAR(250) NOT NULL    
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario VARCHAR(150) NOT NULL UNIQUE,
+    roles ENUM('admin', 'usuario') DEFAULT 'usuario',
+    clave VARCHAR(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
-INSERT INTO usuario (nombre_usuario, roles, clave) 
-VALUES
-('Carlos',   'admin',   '123'),
+INSERT INTO usuario (nombre_usuario, roles, clave) VALUES
+('Carlos', 'admin', '123'),
 ('Daniel', 'usuario', '12345');
+
 CREATE TABLE canchas (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     precio_hora DECIMAL(6,2) NOT NULL,
     estado VARCHAR(20) DEFAULT 'disponible'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE clientes (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(80) NOT NULL,
     telefono VARCHAR(15),
     email VARCHAR(100) UNIQUE
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(80) NOT NULL,
+    telefono VARCHAR(15),
+    email VARCHAR(100) UNIQUE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
-CREATE TABLE reservas (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    cancha_nombre VARCHAR(50) NOT NULL,
-    cliente_nombre VARCHAR(80) NOT NULL,
-    fecha_hora_inicio DATETIME NOT NULL
-);
 
 INSERT INTO canchas (nombre, precio_hora, estado) VALUES
 ('Cancha Fútbol 1', 50.00, 'disponible'),
@@ -326,6 +322,8 @@ INSERT INTO canchas (nombre, precio_hora, estado) VALUES
 ('Cancha Squash 1', 40.00, 'disponible'),
 ('Cancha Squash 2', 40.00, 'disponible');
 
+
+
 INSERT INTO clientes (nombre, telefono, email) VALUES
 ('Luis Ramírez', '987654321', 'luis.ramirez@email.com'),
 ('Ana Torres', '912345678', 'ana.torres@email.com'),
@@ -348,32 +346,49 @@ INSERT INTO clientes (nombre, telefono, email) VALUES
 ('Gustavo Luna', '921098765', 'gustavo.luna@email.com'),
 ('Daniela Cruz', '910987654', 'daniela.cruz@email.com');
 
-INSERT INTO reservas (cancha_nombre, cliente_nombre, fecha_hora_inicio) VALUES
-('Cancha Fútbol 1', 'Luis Ramírez', '2025-05-10 15:00:00'),
-('Cancha Tenis 1', 'Ana Torres', '2025-05-11 10:30:00'),
-('Cancha Básquet 1', 'Carlos Mendoza', '2025-05-12 18:00:00'),
-('Cancha Vóley 1', 'María Fernández', '2025-05-13 16:00:00'),
-('Cancha Paddle 1', 'Jorge Sánchez', '2025-05-14 12:00:00'),
-('Cancha Fútbol 2', 'Lucía Gómez', '2025-05-15 14:30:00'),
-('Cancha Tenis 2', 'Pedro Quispe', '2025-05-16 09:00:00'),
-('Cancha Básquet 2', 'Carmen Rojas', '2025-05-17 19:00:00'),
-('Cancha Vóley 2', 'Andrés Herrera', '2025-05-18 17:00:00'),
-('Cancha Paddle 2', 'Valentina Díaz', '2025-05-19 11:00:00'),
-('Cancha Fútbol 3', 'Ricardo Paredes', '2025-05-20 20:00:00'),
-('Cancha Frontón 1', 'Sofía Castillo', '2025-05-21 08:30:00'),
-('Cancha Fútbol Sala 1', 'Fernando León', '2025-05-22 13:00:00'),
-('Cancha Béisbol 1', 'Isabel Cáceres', '2025-05-23 15:30:00'),
-('Cancha Golf 1', 'Raúl Espinoza', '2025-05-24 10:00:00'),
-('Cancha Squash 1', 'Patricia Vega', '2025-05-25 18:30:00'),
-('Cancha Fútbol 1', 'Eduardo Ríos', '2025-05-26 12:00:00'),
-('Cancha Tenis 1', 'Mónica Flores', '2025-05-27 14:00:00'),
-('Cancha Básquet 1', 'Gustavo Luna', '2025-05-28 16:30:00'),
-('Cancha Vóley 1', 'Daniela Cruz', '2025-05-29 19:30:00');
-```
-```
 
----
+CREATE TABLE reservas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
 
+    id_cancha INT NOT NULL,
+    id_cliente INT NOT NULL,
+    id_usuario INT NOT NULL,
+
+    fecha_hora_inicio DATETIME NOT NULL,
+
+    CONSTRAINT fk_cancha
+        FOREIGN KEY (id_cancha)
+        REFERENCES canchas(id),
+
+    CONSTRAINT fk_cliente
+        FOREIGN KEY (id_cliente)
+        REFERENCES clientes(id),
+
+    CONSTRAINT fk_usuario
+        FOREIGN KEY (id_usuario)
+        REFERENCES usuario(id_usuario)
+
+) ENGINE=InnoDB;INSERT INTO reservas (id_cancha, id_cliente, fecha_hora_inicio) VALUES
+(1, 1, '2025-05-10 15:00:00'),
+(4, 2, '2025-05-11 10:30:00'),
+(6, 3, '2025-05-12 18:00:00'),
+(8, 4, '2025-05-13 16:00:00'),
+(10, 5, '2025-05-14 12:00:00'),
+(2, 6, '2025-05-15 14:30:00'),
+(5, 7, '2025-05-16 09:00:00'),
+(7, 8, '2025-05-17 19:00:00'),
+(9, 9, '2025-05-18 17:00:00'),
+(11, 10, '2025-05-19 11:00:00'),
+(3, 11, '2025-05-20 20:00:00'),
+(12, 12, '2025-05-21 08:30:00'),
+(14, 13, '2025-05-22 13:00:00'),
+(16, 14, '2025-05-23 15:30:00'),
+(18, 15, '2025-05-24 10:00:00'),
+(19, 16, '2025-05-25 18:30:00'),
+(1, 17, '2025-05-26 12:00:00'),
+(4, 18, '2025-05-27 14:00:00'),
+(6, 19, '2025-05-28 16:30:00'),
+(8, 20, '2025-05-29 19:30:00');
 # Cardinalidades
 
 ## usuario → reserva (1:N)
