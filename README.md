@@ -323,7 +323,6 @@ INSERT INTO canchas (nombre, precio_hora, estado) VALUES
 ('Cancha Squash 2', 40.00, 'disponible');
 
 
-
 INSERT INTO clientes (nombre, telefono, email) VALUES
 ('Luis Ramírez', '987654321', 'luis.ramirez@email.com'),
 ('Ana Torres', '912345678', 'ana.torres@email.com'),
